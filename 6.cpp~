@@ -1,0 +1,12 @@
+#include <string>
+#include <stdio.h>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+string convert(string s, int numRows) {
+}
+
+int main(int argc, char *argv[]) {
+}
