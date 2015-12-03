@@ -1,0 +1,70 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+
+vector<int> twoSum(vector<int>& nums, int target) {
+  vector<int> result(2);
+  vector<int> copyNums(nums);
+  int length = nums.size();
+  int indexMin = 0, indexMax = length - 1;
+  int indexTemp = 0;
+  vector<int>::iterator it;
+  
+  sort(nums.begin(), nums.end() + length);
+  for(int i = 0; i < length; i++) {
+    indexMin = i + 1;
+    indexMax = length - 1;
+    if (nums[i] + nums[indexMin] == target) {
+      it = find(copyNums.begin(), copyNums.end(), nums[i]);
+      result[0] = it - copyNums.begin();
+      it = find(copyNums.begin(), copyNums.end(), nums[indexMin]);
+      result[1] =  it - copyNums.begin();
+      return result;
+    } else if (nums[i] + nums[indexMax] == target){
+      it = find(copyNums.begin(), copyNums.end(), nums[i]);
+      result[0] = it - copyNums.begin();
+      it = find(copyNums.begin(), copyNums.end(), nums[indexMax]);
+      result[1] =  it - copyNums.begin();
+      return result;
+    }
+    while (nums[i] + nums[indexMin] < target && nums[i] + nums[indexMax] > target && indexMin < indexMax) {
+      indexTemp = (indexMin + indexMax) / 2;
+      if (nums[i] + nums[indexTemp] == target) {
+	it = find(copyNums.begin(), copyNums.end(), nums[i]);
+	result[0] = it - copyNums.begin();
+	it = find(copyNums.begin(), copyNums.end(), nums[indexMax]);
+	result[1] =  it - copyNums.begin();
+	return result;
+      } else if (nums[i] + nums[indexTemp] < target) {
+	indexMin = indexTemp;
+      } else {
+	indexMax = indexTemp;
+      }
+    }
+  }
+
+  return result;
+}
+
+int main() {
+  vector<int> nums;
+  char temp;
+  int target;
+  printf("input nums:\n");
+  while (scanf(" %c", &temp) && temp != 'e') {
+    nums.push_back(temp - '0');
+  }
+  printf("input target:\n");
+  scanf("%i", &target);
+
+  vector<int> result = twoSum(nums, target);
+  for (int i = 0; i < 2; i++) {
+    printf("%i ", result[i]);
+  }
+  printf("\n");
+
+  return 0;
+}
