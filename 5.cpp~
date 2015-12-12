@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stack>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+bool isPalindromic(string s, int start, int end) {
+  int length = end - start;
+  stack<char> stringStack;
+  int mid =  start + length / 2;
+  int startPalindromic = length % 2 ? mid + 1 : mid;
+
+  for (int i = start; i < mid; i ++) {
+    stringStack.push(s[i]);
+  }
+
+  for (int i = startPalindromic; i < end; i++) {
+    char now = stringStack.pop();
+    if (now != s[i]) return false;
+  }
+
+  return true;
+}
+
+
+
+
+
