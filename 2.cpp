@@ -1,5 +1,4 @@
 #include <iostream>
-#include
 
 struct ListNode {
   int val;
@@ -31,7 +30,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         l1 = l1->next;
         l2 = l2->next;
       }
-    
+
       while (l1) {
         value = (l1->val + carry) % 10;
         carry = (l1->val + carry) / 10;
@@ -52,7 +51,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         now = next;
         l2 = l2->next;
       }
-      
+
       if (carry) {
         value = carry;
         ListNode *next = (ListNode *) malloc (sizeof(ListNode));
@@ -61,6 +60,6 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         now->next = next;
         now = next;
       }
-    
+
       return result;
 }

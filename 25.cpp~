@@ -1,0 +1,19 @@
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode(int x) : val(x), next(NULL) {}
+};
+
+
+ListNode* reverseKNode(ListNode* head, int k) {
+  ListNode* beforeHead = new ListNode(0);
+  ListNode *now, *next;
+  now = head;
+  if(now) next = now->next;
+}
+
+ListNode* reverseKGroup(ListNode* head, int k) {
+
+  
+        
+}

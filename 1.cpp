@@ -1,6 +1,13 @@
+/*
+二分查找
+*/
+
+
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <stdio.h>
 
 using namespace std;
 
@@ -61,12 +68,12 @@ vector<int> twoSum(vector<int>& nums, int target) {
             break;
         }
     }
-    
+
     it = find(copyNums.begin(), copyNums.end(), value1);
     index1 = it - copyNums.begin();
     it = find(copyNums.begin(), copyNums.end(), value2);
     index2 = it - copyNums.begin();
-    
+
     if (index1 == index2) {
         it = find(copyNums.begin() + index1 + 1, copyNums.end(), value2);
         index2 = it - copyNums.begin();
@@ -75,10 +82,10 @@ vector<int> twoSum(vector<int>& nums, int target) {
         index1 = index2;
         index2 = tempIndex;
     }
-    
+
     result[0] = index1 +1;
     result[1] = index2 +1;
-    
+
     return result;
 }
 
@@ -94,10 +101,10 @@ int main() {
         scanf("%i", &temp);
         nums.push_back(temp);
     }
-    
+
     printf("input target:\n");
     scanf("%i", &target);
-    
+
     vector<int> result = twoSum(nums, target);
     for (int i = 0; i < 2; i++) {
         printf("%i ", result[i]);
