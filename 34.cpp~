@@ -1,0 +1,8 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+vector<int> searchRange(vector<int>& nums, int target) {
+  vector<int> ans(-1, 2);
+}

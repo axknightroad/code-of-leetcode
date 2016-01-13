@@ -1,0 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stack>
+
+using namespace std;
+
+int longestValidParentheses(string s) {
+  stack<int> left;
+}
